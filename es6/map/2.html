@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div name="孙尚香">孙尚香</div>
+  <div name="马可波罗">马可波罗</div>
+  <form action="" onsubmit="return post()">
+    请接协议：
+    <input type="checkbox" name="agreement" error="请接受协议" />
+    我是学生
+    <input type="checkbox" name="student" error="网站只对学生开发" />
+    <input type="submit" />
+  </form>
+  <script>
+    let map = new Map();
+    document.querySelectorAll("div").forEach(item=>{
+      map.set(item,{
+        content:item.getAttribute("name")
+      })
+    });
+    map.forEach((config, elem) => {
+      console.log(config,elem);
+      elem.addEventListener("click",()=>{
+        alert(config.content);
+
+      });
+    });
+    console.log(map);
+
+    function post(){
+      let mapfun = new Map();
+      let inputs = document.querySelectorAll("[error]");
+      inputs.forEach(item => {
+        mapfun.set(item,{
+          error: item.getAttribute("error"),
+          stutus: item.checked
+        });
+      });
+      console.log(mapfun);
+      return [...mapfun].every(([elem,config])=>{
+        config.stutus || alert(config.error)
+        return config.stutus;
+      })
+    }
+
+  </script>
+</body>
+</html>

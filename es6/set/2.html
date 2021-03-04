@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let a = new Set([1,2,3,4,5,6]);
+    let b = new Set([2,4,5,7,8,9]);
+
+    console.log("并集",new Set([...a,...b]))
+    console.log("交集",new Set(
+      [...a].filter(function(item){
+        return b.has(item);
+      })
+    ))
+    console.log("b不含有的：",new Set(
+      [...a].filter(function(item){
+        return !b.has(item)
+      })
+    ))
+  </script>
+</body>
+</html>

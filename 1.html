@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+</head>
+<body>
+    <button onclick="but1()" >按钮1</button>
+    <button onclick="but2()">按钮2</button>
+    <button onclick="but3()">按钮3</button>
+</body>
+<script>
+    var ss="[{\"dictValue\":\"8790-00013-R8254\",\"dictName\":\"法&迪欧(Fardior)-厨&卫-厨房电器\",\"dictType\":\"brand-category-level2\",\"conditionCode\":\"WD003\",\"roleName\":\"品牌商尊享版\",\"roleCode\":\"EDJZ009\",\"conditionName\":\"品牌类目\",\"serviceCode\":\"SER0009\"},{\"dictValue\":\"2\",\"dictName\":\"线下\",\"dictType\":\"channel\",\"conditionCode\":\"WD008\",\"roleName\":\"品牌商尊享版\",\"roleCode\":\"EDJZ009\",\"conditionName\":\"销售渠道\",\"serviceCode\":\"SER0009\"}]"
+
+$.ajax({
+
+url:'http://sdaspre.cnsuning.com/orderCenter/orderService/getPriceTest.htm',
+
+// url:"https://edao.suning.com/public/getImgJsonpTest.htm",
+
+dataType:"jsonp",
+
+type:"post",
+
+timeout: 5000,
+
+jsonp:'jsonpCallback',
+
+// data:{"orderCycle":"yearprice","dataPermission":[{"dictValue":"8790-00013-R8254”,"dictName":"法&迪欧(Fardior)-厨&卫-厨房电器","dictType":"brand-category-level2\",\"conditionCode\":\"WD003\",\"roleName\":\"品牌商尊享版\",\"roleCode\":\"EDJZ009\",\"conditionName\":\"品牌类目\",\"serviceCode\":\"SER0009\"},{\"dictValue\":\"2\",\"dictName\":\"线下\",\"dictType\":\"channel\",\"conditionCode\":\"WD008\",\"roleName\":\"品牌商尊享版\",\"roleCode\":\"EDJZ009\",\"conditionName\":\"销售渠道\",\"serviceCode\":\"SER0009\"}]},
+
+cache:true,
+
+error : function(XMLHttpRequest, textStatus, errorThrown) {
+
+console.log("error...........",errorThrown);
+
+},
+
+success: function(data) {
+
+console.log(data);
+
+}
+
+});
+</script>
+</html>
